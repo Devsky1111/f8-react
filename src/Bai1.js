@@ -32,6 +32,22 @@ export function Test({ props1, props2, props3 }) {
 
 }
 
+export function Test1({ props1, props2, content, callback }) {
+    console.log(`${props1}, ${props2}, ${content}`)
+    return (
+        <div>
+            <ul>
+                <li>"props1:"" {props1}</li>
+                <li>"props2:"" {props2}</li>
+                <li>"props1:"" {content}</li>
+            </ul>
+            <button>{content}</button>
+            {callback()}
+        </div>
+
+
+    )
+}
 //------------------------------------------------------------------------------------------------------------
 //2. Component từ phương thức của một object
 export const Form = {
@@ -42,4 +58,16 @@ export const Form = {
         return <input type="checkbox" />
     }
 
+}
+
+//-------------------------------------------------------------------------------------------------------------
+// 3. rest, spread với nhiều props
+
+export function MultiProps({ ...multiprops }) { //ta dùng rest ở đây, multiprops là tập hợp các props
+    console.log({ ...multiprops }) //Spread
+    return (
+        <div>
+            <input {...multiprops} /> {/* spread ở đây*/}
+        </div>
+    )
 }
